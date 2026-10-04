@@ -7,7 +7,7 @@ Vzorky jsou součástí balíčku specifikace `{schema-uri}.zip` (adresář `sam
 Vychází ze skutečných dat z 30. 9. 2026: dálniční segment `TS25575T01325` s odděleným dopravním proudem
 v noci; dojezdové doby osobních a nákladních automobilů jsou doplněny pro ilustraci (vypočtené z délky segmentu
 2 674 m a rychlostí). Publikace obsahuje sedm elementů `physicalQuantity` – stav provozu pro všechna vozidla,
-rychlost a dojezdovou dobu s rychlostí volného provozu pro všechna vozidla, osobní a nákladní automobily.
+rychlost a dojezdovou dobu s rychlostí volného dopravního proudu pro všechna vozidla, osobní a nákladní automobily.
 
 [source,xml]
 ----
@@ -20,19 +20,19 @@ a identifikací rozšíření `@extensionName`, `@extensionVersion`, `feedType` 
 čas výpočtu `timeDefault`.
 
 Stav provozu::
-Pro všechna vozidla je rychlost 111 km/h při rychlosti volného provozu 130 km/h (85 %), stav je tedy
+Pro všechna vozidla je rychlost 111 km/h při rychlosti volného dopravního proudu 130 km/h (85 %), stav je tedy
 `freeFlow` a stupeň provozu v rozšíření NDIC `level1`; kolona není. Osobní automobily jedou 110 km/h
-(volný provoz 130 km/h), nákladní 100 km/h (volný provoz 80 km/h).
+(volný dopravní proud 130 km/h), nákladní 100 km/h (volný dopravní proud 80 km/h).
 
 Dojezdová doba::
-Pro všechna vozidla 87 s oproti 74 s při volném provozu, zdržení `travelTimeDelay` tedy 13 s. Osobní
+Pro všechna vozidla 87 s oproti 74 s při volném dopravním proudu, zdržení `travelTimeDelay` tedy 13 s. Osobní
 automobily 88 s oproti 74 s (zdržení 14 s), nákladní 96 s oproti 120 s – jedou rychleji než
-při volném provozu, zdržení je tedy 0 s.
+při volném dopravním proudu, zdržení je tedy 0 s.
 
 Kvalita a počet vozidel::
 Hodnoty pro všechna vozidla mají `@supplierCalculatedDataQuality` (95 %) a `@numberOfInputValuesUsed`
-(10 vozidel), rychlosti a dojezdové doby osobních a nákladních automobilů jen počet vozidel (3 a 7); hodnoty při volném
-provozu atributy kvality nemají.
+(10 vozidel), rychlosti a dojezdové doby osobních a nákladních automobilů jen počet vozidel (3 a 7); hodnoty při volném dopravním
+proudu atributy kvality nemají.
 
 Poloha::
 Všechny hodnoty odkazují na předdefinovanou polohu `TS25575T01325` verze `260601` ze sady poloh FCD (vzorek `predefined_location_set-fcd.xml` formátu `x-format:cz-ndic_d2-pls-v2.0`).
@@ -41,7 +41,7 @@ Všechny hodnoty odkazují na předdefinovanou polohu `TS25575T01325` verze `260
 
 Skutečná data z 30. 9. 2026: segment `TS02125T15781` s kolonou v noci. Publikace obsahuje pět elementů
 `physicalQuantity` – stav provozu pro všechna vozidla, rychlost pro všechna vozidla a osobní automobily
-a dojezdovou dobu pro všechna vozidla; pro osobní automobily jen rychlost volného provozu.
+a dojezdovou dobu pro všechna vozidla; pro osobní automobily jen rychlost volného dopravního proudu.
 
 [source,xml]
 ----
@@ -49,11 +49,11 @@ include::{samplesdir}/fcd-congestion.xml[tags=**]
 ----
 
 Stav provozu::
-Rychlost 13 km/h při rychlosti volného provozu 90 km/h (14 %) odpovídá stavu `queuing` a stupni provozu
+Rychlost 13 km/h při rychlosti volného dopravního proudu 90 km/h (14 %) odpovídá stavu `queuing` a stupni provozu
 `level5`. Kolona je dlouhá 1 784 m a leží od 10,56 % do 59,01 % délky segmentu.
 
 Dojezdová doba::
-916 s oproti 133 s při volném provozu, zdržení `travelTimeDelay` 783 s.
+916 s oproti 133 s při volném dopravním proudu, zdržení `travelTimeDelay` 783 s.
 
 Poloha::
 Hodnoty odkazují na předdefinovanou polohu `TS02125T15781` verze `260601` ze sady poloh FCD.

@@ -26,13 +26,13 @@ NdicFcdExtension:
   trafficLevel: Stupeň provozu na segmentu podle národní klasifikace.
   queueInformation: Kolony zjištěné na segmentu.
 TrafficLevel:
-  _: Stupeň provozu podle národní klasifikace, odvozený z poměru aktuální rychlosti a rychlosti volného provozu na segmentu.
+  _: Stupeň provozu podle národní klasifikace, odvozený z poměru aktuální rychlosti a rychlosti volného dopravního proudu na segmentu.
   trafficLevelValue:
     note: Stupeň provozu (`level1` až `level5`).
     values:
       level1: jednotlivá vozidla, volný provoz (poměr rychlostí 85–100 %)
       level2: skupiny vozidel, volný provoz (75–85 %)
-      level3: proudy vozidel, plynulý provoz, rychlost pod povolenou (50–75 %)
+      level3: proudy vozidel, plynulý provoz, rychlost pod nejvyšší dovolenou (50–75 %)
       level4: tvorba kolon, nestabilní provoz, výrazně snížená rychlost (20–50 %)
       level5: dopravní kolaps, vozidla stojí nebo se pomalu posouvají v kolonách (0–20 %)
 QueueInformation:

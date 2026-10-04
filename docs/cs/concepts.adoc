@@ -1,6 +1,6 @@
 == Koncepty
 
-Formát poskytuje stavové informace o dopravě získané z plovoucích vozidel (FCD) na sadě předem
+Formát poskytuje stavové informace o provozu získané z plovoucích vozidel (FCD) na sadě předem
 definovaných úseků silniční sítě (segmentů): dojezdové doby, rychlost dopravního proudu, stav provozu
 a stupně provozu, odhad délky a polohy kolon. Rychlosti a dojezdové doby se poskytují souhrnně pro všechna
 vozidla a odděleně pro osobní a nákladní automobily; stav provozu, stupeň provozu a kolony jen pro všechna
@@ -61,8 +61,8 @@ Každá hodnota pro jeden segment a jeden typ vozidla je samostatný element `ph
 |Typ `basicData` |Obsah
 |`roa:TrafficStatus` |stav provozu (`trafficStatus`) a v rozšíření NDIC stupeň provozu a kolony – jen pro všechna vozidla
 |`roa:TrafficSpeed` |aktuální průměrná rychlost dopravního proudu (`averageVehicleSpeed`) [km/h]
-|`roa:TravelTimeData` |aktuální dojezdová doba (`travelTime`), dojezdová doba při volném provozu
-(`freeFlowTravelTime`), zdržení (`travelTimeDelay`) [s] a rychlost volného provozu (`freeFlowSpeed`) [km/h]
+|`roa:TravelTimeData` |aktuální dojezdová doba (`travelTime`), dojezdová doba při volném dopravním proudu
+(`freeFlowTravelTime`), zdržení (`travelTimeDelay`) [s] a rychlost volného dopravního proudu (`freeFlowSpeed`) [km/h]
 |===
 
 Pro segment se sdruženým dopravním proudem jsou tedy tři elementy `physicalQuantity`. Na segmentech, kde se
@@ -82,7 +82,7 @@ Rozsah informací podle segmentu:
 * Segmenty s *odděleným dopravním proudem* (více pruhů, kde se rychlosti osobních a nákladních automobilů
   liší) mají navíc pro osobní (`car`) a nákladní (`lorry`) automobily:
 ** aktuální rychlost (`roa:TrafficSpeed`),
-** dojezdovou dobu, dojezdovou dobu při volném provozu, zdržení a rychlost volného provozu
+** dojezdovou dobu, dojezdovou dobu při volném dopravním proudu, zdržení a rychlost volného dopravního proudu
    (`roa:TravelTimeData`); dojezdové doby se pro osobní a nákladní automobily liší.
 * Jen pro všechna vozidla se uvádějí stav provozu, stupeň provozu a kolony (`roa:TrafficStatus` typ vozidla
   neuvádí).
@@ -117,7 +117,7 @@ include::{samplesdir}/fcd-all-lorry-car-sample.xml[tag=status,indent=0]
 === Rychlost, dojezdová doba a zdržení
 
 Aktuální průměrná rychlost v měřeném časovém okně je ve třídě `roa:TrafficSpeed` (`averageVehicleSpeed`),
-rychlost volného průjezdu ve třídě `roa:TravelTimeData` (`freeFlowSpeed`).
+rychlost volného dopravního proudu ve třídě `roa:TravelTimeData` (`freeFlowSpeed`).
 
 .Rychlost dopravního proudu (vzorek `fcd-all-lorry-car-sample.xml`)
 [source,xml]
@@ -126,7 +126,7 @@ include::{samplesdir}/fcd-all-lorry-car-sample.xml[tag=speed,indent=0]
 ----
 
 Třída `roa:TravelTimeData` nese aktuální průměrnou dojezdovou dobu (`travelTime`), průměrnou dojezdovou
-dobu volného průjezdu (`freeFlowTravelTime`) a *aktuální zdržení* `travelTimeDelay` = `travelTime` −
+dobu při volném dopravním proudu (`freeFlowTravelTime`) a *aktuální zdržení* `travelTimeDelay` = `travelTime` −
 `freeFlowTravelTime` (nejméně 0).
 
 .Dojezdová doba a zdržení (vzorek `fcd-all-lorry-car-sample.xml`)
@@ -139,12 +139,12 @@ include::{samplesdir}/fcd-all-lorry-car-sample.xml[tag=traveltime,indent=0]
 === Stav provozu
 
 Stav provozu je hodnota výčtu `roa:TrafficStatusEnum` podle definic modelu 3.7, určená z poměru aktuální
-rychlosti a rychlosti volného provozu:
+rychlosti a rychlosti volného dopravního proudu:
 
 [cols="1,2,1",options="header"]
 |===
 |Hodnota |Význam |Poměr rychlostí
-|`stationary` |stojící doprava |< 10 %
+|`stationary` |stojící provoz |< 10 %
 |`queuing` |kolony, provoz popojíždí |10 % a více, méně než 25 %
 |`slow` |zpomalený provoz |25 % a více, méně než 75 %
 |`freeFlow` |plynulý provoz |≥ 75 %
@@ -156,14 +156,14 @@ rychlosti a rychlosti volného provozu:
 
 Rozšíření NDIC uvádí stupeň provozu tak, jak se stanovuje a používá v ČR: element
 `trafficLevel/trafficLevelValue` s hodnotami `level1` až `level5`. Stupeň se počítá z poměru
-aktuální rychlosti dopravního proudu a rychlosti volného provozu na segmentu:
+aktuální rychlosti dopravního proudu a rychlosti volného dopravního proudu na segmentu:
 
 [cols="1,6,2",options="header"]
 |===
 |Stupeň |Popis |Poměr rychlostí
 |1 |provoz pouze jednotlivých vozidel, jízda je plynulá |85–100 %
 |2 |provoz malých skupinek vozidel, jízda je plynulá, odbavování na křižovatkách bez problémů |75–85 %
-|3 |tvoří se proudy vozidel, provoz je plynulý, avšak rychlost nižší než maximální povolená |50–75 %
+|3 |tvoří se proudy vozidel, provoz je plynulý, avšak rychlost nižší než nejvyšší dovolená |50–75 %
 |4 |tvoří se kolony vozidel, provoz není plynulý, průměrná rychlost je výrazně snížená, průjezd křižovatkami je narušen |20–50 %
 |5 |dopravní kolaps – vozidla stojí nebo v kolonách jen velmi pomalu popojíždějí |0–20 %
 |===
@@ -172,7 +172,7 @@ aktuální rychlosti dopravního proudu a rychlosti volného provozu na segmentu
 ==== Kolony (rozšíření NDIC)
 
 Segmenty se interně dělí na menší části – úseky sítě Global Network. Kongesce se vyhodnocuje na úsecích
-jako pokles rychlosti průjezdu úseku *pod 30 % rychlosti volného průjezdu*. Element
+jako pokles rychlosti průjezdu úseku *pod 30 % rychlosti volného dopravního proudu*. Element
 `queueInformation` obsahuje agregované hodnoty z úseků segmentu, na kterých byla kongesce
 vyhodnocena; nebyla-li vyhodnocena na žádném úseku, element chybí. Na segment je nejvýše jeden.
 
@@ -223,7 +223,7 @@ vozidlům. Schéma rozšíření `cz-ndic_d2-fcd-extension-1.0.xsd` je součást
 
 Publikace obsahuje jen segmenty, pro které jsou v době vyhodnocení k dispozici aktuální data; segment bez
 nich se do publikace nezařadí. Totéž platí pro typy vozidel: rychlost osobních nebo nákladních automobilů
-(a k ní rychlost volného provozu) se uvádí, jen pokud tento typ vozidel segmentem projel. Odběratel proto
+(a k ní rychlost volného dopravního proudu) se uvádí, jen pokud tento typ vozidel segmentem projel. Odběratel proto
 nemá chybějící segment vykládat jako volný provoz.
 
 [[platnost]]
