@@ -25,9 +25,9 @@ Pro všechna vozidla je rychlost 111 km/h při rychlosti volného provozu 130 km
 (volný provoz 130 km/h), nákladní 100 km/h (volný provoz 80 km/h).
 
 Dojezdová doba::
-Pro všechna vozidla 87 s oproti 74 s při volném provozu, zpoždění `travelTimeDelay` tedy 13 s. Osobní
-automobily 88 s oproti 74 s (zpoždění 14 s), nákladní 96 s oproti 120 s – jedou rychleji než
-při volném provozu, zpoždění je tedy 0 s.
+Pro všechna vozidla 87 s oproti 74 s při volném provozu, zdržení `travelTimeDelay` tedy 13 s. Osobní
+automobily 88 s oproti 74 s (zdržení 14 s), nákladní 96 s oproti 120 s – jedou rychleji než
+při volném provozu, zdržení je tedy 0 s.
 
 Kvalita a počet vozidel::
 Hodnoty pro všechna vozidla mají `@supplierCalculatedDataQuality` (95 %) a `@numberOfInputValuesUsed`
@@ -53,7 +53,7 @@ Rychlost 13 km/h při rychlosti volného provozu 90 km/h (14 %) odpovídá stavu
 `level5`. Kolona je dlouhá 1 784 m a leží od 10,56 % do 59,01 % délky segmentu.
 
 Dojezdová doba::
-916 s oproti 133 s při volném provozu, zpoždění `travelTimeDelay` 783 s.
+916 s oproti 133 s při volném provozu, zdržení `travelTimeDelay` 783 s.
 
 Poloha::
 Hodnoty odkazují na předdefinovanou polohu `TS02125T15781` verze `260601` ze sady poloh FCD.

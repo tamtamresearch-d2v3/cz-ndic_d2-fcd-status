@@ -62,7 +62,7 @@ Každá hodnota pro jeden segment a jeden typ vozidla je samostatný element `ph
 |`roa:TrafficStatus` |stav provozu (`trafficStatus`) a v rozšíření NDIC stupeň provozu a kolony – jen pro všechna vozidla
 |`roa:TrafficSpeed` |aktuální průměrná rychlost dopravního proudu (`averageVehicleSpeed`) [km/h]
 |`roa:TravelTimeData` |aktuální dojezdová doba (`travelTime`), dojezdová doba při volném provozu
-(`freeFlowTravelTime`), zpoždění (`travelTimeDelay`) [s] a rychlost volného provozu (`freeFlowSpeed`) [km/h]
+(`freeFlowTravelTime`), zdržení (`travelTimeDelay`) [s] a rychlost volného provozu (`freeFlowSpeed`) [km/h]
 |===
 
 Pro segment se sdruženým dopravním proudem jsou tedy tři elementy `physicalQuantity`. Na segmentech, kde se
@@ -82,7 +82,7 @@ Rozsah informací podle segmentu:
 * Segmenty s *odděleným dopravním proudem* (více pruhů, kde se rychlosti osobních a nákladních automobilů
   liší) mají navíc pro osobní (`car`) a nákladní (`lorry`) automobily:
 ** aktuální rychlost (`roa:TrafficSpeed`),
-** dojezdovou dobu, dojezdovou dobu při volném provozu, zpoždění a rychlost volného provozu
+** dojezdovou dobu, dojezdovou dobu při volném provozu, zdržení a rychlost volného provozu
    (`roa:TravelTimeData`); dojezdové doby se pro osobní a nákladní automobily liší.
 * Jen pro všechna vozidla se uvádějí stav provozu, stupeň provozu a kolony (`roa:TrafficStatus` typ vozidla
   neuvádí).
@@ -114,7 +114,7 @@ include::{samplesdir}/fcd-all-lorry-car-sample.xml[tag=status,indent=0]
 ----
 
 [[rychlost]]
-=== Rychlost, dojezdová doba a zpoždění
+=== Rychlost, dojezdová doba a zdržení
 
 Aktuální průměrná rychlost v měřeném časovém okně je ve třídě `roa:TrafficSpeed` (`averageVehicleSpeed`),
 rychlost volného průjezdu ve třídě `roa:TravelTimeData` (`freeFlowSpeed`).
@@ -126,10 +126,10 @@ include::{samplesdir}/fcd-all-lorry-car-sample.xml[tag=speed,indent=0]
 ----
 
 Třída `roa:TravelTimeData` nese aktuální průměrnou dojezdovou dobu (`travelTime`), průměrnou dojezdovou
-dobu volného průjezdu (`freeFlowTravelTime`) a *aktuální zpoždění* `travelTimeDelay` = `travelTime` −
+dobu volného průjezdu (`freeFlowTravelTime`) a *aktuální zdržení* `travelTimeDelay` = `travelTime` −
 `freeFlowTravelTime` (nejméně 0).
 
-.Dojezdová doba a zpoždění (vzorek `fcd-all-lorry-car-sample.xml`)
+.Dojezdová doba a zdržení (vzorek `fcd-all-lorry-car-sample.xml`)
 [source,xml]
 ----
 include::{samplesdir}/fcd-all-lorry-car-sample.xml[tag=traveltime,indent=0]
