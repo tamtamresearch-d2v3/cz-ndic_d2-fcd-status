@@ -260,7 +260,7 @@ the physical layout of the road.
 
 The format references locations solely in the element `pertinentLocation` (type `loc:LocationByReference`,
 `@targetClass` = `loc:PredefinedLocation`) to the set of predefined locations published in the format
-`cz-ndic_d2-pls` (set of FCD segments). The recipient looks the location up by its identifier and version.
+`x-format:cz-ndic_d2-pls-v2.0` (set of FCD segments). The recipient looks the location up by its identifier and version.
 
 Segments of the FCD set:
 

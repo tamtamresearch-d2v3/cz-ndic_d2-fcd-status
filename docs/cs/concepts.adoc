@@ -253,7 +253,7 @@ jdoucími body lokační tabulky ALERT-C <<ISO14819-3>>, úseky sítě Global Ne
 
 Formát popisuje polohy výhradně odkazem v elementu `pertinentLocation` (typ `loc:LocationByReference`,
 `@targetClass` = `loc:PredefinedLocation`) do sady předem definovaných poloh publikované formátem
-`cz-ndic_d2-pls` (sada úseků FCD). Odběratel polohu dohledá podle identifikátoru a verze.
+`x-format:cz-ndic_d2-pls-v2.0` (sada úseků FCD). Odběratel polohu dohledá podle identifikátoru a verze.
 
 Segmenty sady FCD:
 

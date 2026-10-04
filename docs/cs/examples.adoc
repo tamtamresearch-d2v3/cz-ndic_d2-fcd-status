@@ -35,7 +35,7 @@ Hodnoty pro všechna vozidla mají `@supplierCalculatedDataQuality` (95 %) a `@n
 provozu atributy kvality nemají.
 
 Poloha::
-Všechny hodnoty odkazují na předdefinovanou polohu `TS25575T01325` verze `260601` ze sady poloh FCD (vzorek `predefined_location_set-fcd.xml` formátu `cz-ndic_d2-pls`).
+Všechny hodnoty odkazují na předdefinovanou polohu `TS25575T01325` verze `260601` ze sady poloh FCD (vzorek `predefined_location_set-fcd.xml` formátu `x-format:cz-ndic_d2-pls-v2.0`).
 
 === fcd-congestion.xml – segment s kolonou
 
